@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+         updateCheck="false">
+
+    <diskStore path="java.io.tmpdir"/>
+    <!--defaultCache:echcache的默认缓存策略  -->
+    <!--maxElementsInMemory 缓存的最大数目-->
+    <!--timeToIdleSeconds 当缓存的内容闲置多少时间销毁-->
+    <!--maxElementsOnDisk 磁盘缓存中最多可以存放的元素数量,0表示无穷大-->
+    <!--timeToLiveSeconds 当缓存存活多少时间销毁（单位是秒-->
+    <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            maxElementsOnDisk="10000000"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU">
+        <persistence strategy="localTempSwap"/>
+    </defaultCache>
+    <!--eternal 缓存中对象是否永久有效,即是否永驻内存,true时将忽略timeToIdleSeconds和timeToLiveSeconds-->
+    <!--memoryStoreEvictionPolicy 内存存储与释放策略,即达到maxElementsInMemory限制时,Ehcache会根据指定策略清理内存-->
+    <!--diskExpiryThreadIntervalSeconds 磁盘缓存的清理线程运行间隔,默认是120秒-->
+    <cache name="dataSrc_Cache"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="120"
+           timeToLiveSeconds="120"
+           maxElementsOnDisk="10000000"
+           diskExpiryThreadIntervalSeconds="120"
+           memoryStoreEvictionPolicy="LRU">
+        <persistence strategy="localTempSwap"/>
+    </cache>
+
+    <cache name="dataCache_Cache"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="120"
+           timeToLiveSeconds="120"
+           maxElementsOnDisk="10000000"
+           diskExpiryThreadIntervalSeconds="120"
+           memoryStoreEvictionPolicy="LRU">
+        <persistence strategy="localTempSwap"/>
+    </cache>
+</ehcache>

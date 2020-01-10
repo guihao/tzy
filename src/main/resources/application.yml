@@ -1,0 +1,26 @@
+
+server:
+  port: 8765
+  servlet:
+    context-path: /hdsm
+
+spring:
+  datasource:
+    platform: mysql
+    url: jdbc:mysql://192.168.2.32:3306/gh_test?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  jpa:
+      database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+      show-sql: true
+      hibernate:
+        ddl-auto: update
+        use-new-id-generator-mappings: false
+
+
+pic:
+  dirpath: D:\test\pic\lable
+  productpath: D:\test\pic\product
+  indexpath: D:\test\pic\index
